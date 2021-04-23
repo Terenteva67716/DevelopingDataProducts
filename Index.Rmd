@@ -1,0 +1,24 @@
+---
+title: "R Markdown and Leaflet"
+author: "Larisa Terenteva"
+date: "23 04 2021"
+output: html_document
+---
+
+### Overview
+This is a peer-graded Assignment of Developing Data Products Course. 
+Here we create a simple map in R using the *leaflet* package.
+
+
+```{r}
+library(leaflet)
+```
+We create a map that highligths the location of Fitzwilliam and Trinity Colleges University of Cambridge. By clicking in the blue pins a user can then navigate to the website of these colleges. 
+```{r}
+Fitz <- c("<a href= 'www.fitz.cam.ac.uk' >Fitzwilliam College University of Cambridge</a>")
+Trin <- c("<a href= 'www.trin.cam.ac.uk' >Trinity College  University of Cambridge</a>") 
+my_map <- leaflet() %>%   addTiles()%>%
+addMarkers(lat= 52.21424901676403, lng=0.10476632472925268, popup = Fitz) %>%
+addMarkers(lat= 52.20737485, lng=0.113152967, popup = Trin)
+my_map
+```
